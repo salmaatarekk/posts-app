@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 import { Post } from "../types/cardTypes";
 import InfiniteScroll from "react-infinite-scroll-component";
 import PostCard from "./PostCard";
+import { useWindowSize } from "../hooks/windowSizeHook";
 
 export default function LandingPage({ posts }: { posts: Post[] }) {
   const [hasMore, setHasMore] = useState<boolean>(true);
   const [pagePosts, setPagePosts] = useState<Post[]>([]);
+  const windowSize = useWindowSize();
 
   const getNextPosts = async () => {
     if (pagePosts) {
@@ -40,7 +42,11 @@ export default function LandingPage({ posts }: { posts: Post[] }) {
       next={getNextPosts}
       key="landingPageScroll"
       dataLength={pagePosts.length}
-      style={{ overflow: "hidden" }}
+      style={{
+        overflow: "hidden",
+        marginTop: windowSize > 700 ? "8%" : 0,
+        marginBottom: windowSize <= 700 ? "10%" : 0,
+      }}
     >
       {pagePosts.map((post, idx) => (
         <PostCard key={`#${idx}`} {...post} />
