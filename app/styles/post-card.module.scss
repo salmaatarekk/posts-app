@@ -45,13 +45,13 @@
       justify-content: space-between;
       align-items: center;
       padding: 12px;
-      //   color: $postImgFooterTxt;
-      //   background-color: $postImgFooterBg;
+      color: #151515;
+      background-color: #8c8c8cba;
 
       .icon {
         font-size: 24px;
         cursor: pointer;
-        // color: $postIconColor;
+        color: #000000;
         &:hover {
           color: red;
         }
@@ -78,7 +78,7 @@
       gap: 5px;
       font-weight: bold;
       margin-bottom: 12px;
-      //   color: $hyperTxtColor;
+      color: #4a5ec1;
 
       .icon {
         font-size: 20px;
@@ -92,20 +92,20 @@
 
     .caption {
       margin-bottom: 4px;
-      //   color: $postCationTxt;
+      color: "#F0F0F0";
     }
 
     .tags {
       margin-bottom: 12px;
-      //   color: $hyperTxtColor;
-
+      color: #4a5ec1;
       span {
         cursor: pointer;
+        margin-left: 3px;
       }
     }
 
     .comments {
-      //   color: $postCommentTxt;
+      color: #bebebe;
       font-size: 12px;
       cursor: pointer;
     }
