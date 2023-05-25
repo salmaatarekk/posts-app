@@ -4,30 +4,26 @@
 The Posts App is a social media platform that allows users to view and like posts. It features a LandingPage component that displays a list of posts and a Favorites page that shows the user's liked posts. The app uses Next.js 13 features such as layout, loading, and error indicator pages to provide a seamless user experience.
 
 2.Features:
-
 - Display a list of posts with images, author information, description, tags, likes, and comments.
 - Allow users to like or dislike a post by clicking a heart icon
 - Use context and state management to ensure that the user's liked posts persist between page reloads.
 - Enable infinite scrolling of the posts using the react-infinite-scroll-component library
 - Use the next/image library to optimize image loading and display
-- Use the react-icons/ai library to display a heart icon for liking and disliking posts
+- Use the react-icons/ai library to display a heart icon for liking and disliking posts.
 
-  3.Folder Structure
-  The project follows a modular structure and includes the following components:
+3.Folder Structure:
+The project follows a modular structure and includes the following components.
 
-  3.1 Pages:
-
+3.1 Pages:
 - Landing page (posts page): Displays posts retrieved from local storage
 - Favourites page: Displays the user's liked posts
 
-  3.2 Componenets:
-
+3.2 Componenets:
 - NavBar Component: Displays the navigation bar at the top of the application to navigate between the Landing page (Posts page) and the Favorite Posts page.
 - PostCard Component: Represents an individual post and displays its details. It includes the heart icon for toggling the favorite status of a post.
 - Loading Component: Displays a spinner while waiting for data to load
 
-  4.Technologies Used:
-
+4.Technologies Used:
 - Next.js: A React framework for server-side rendering and building web applications.
 - React: A JavaScript library for building user interfaces.
 - Typescript: A typed superset of JavaScript that provides static typing capabilities.
