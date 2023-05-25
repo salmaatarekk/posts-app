@@ -1,0 +1,24 @@
+.emptystatecard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #ccc;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  height: 100vh;
+}
+
+.cardtitle {
+  color: #555;
+  font-size: 1.2rem;
+}
+
+.cardtext {
+  color: #888;
+  font-size: 1rem;
+}
+
+.cardbody {
+  margin: auto;
+}
