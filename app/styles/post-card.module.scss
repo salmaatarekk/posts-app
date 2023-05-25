@@ -29,6 +29,7 @@
 
   .body {
     position: relative;
+    width: 70%;
 
     img {
       width: 100%;
@@ -51,7 +52,7 @@
       .icon {
         font-size: 30px;
         cursor: pointer;
-        color: #000000;
+        color: white;
         &:hover {
           color: red;
         }

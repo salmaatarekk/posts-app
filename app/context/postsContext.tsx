@@ -39,7 +39,7 @@ export function ApplicationContextProvider({
   const [homePostsList, setHomePostsList] = useState<Post[]>([]);
   const [likedPostsList, setLikedPostsList] = useState<Post[]>([]);
 
-  const loadData = () => {
+  const setDataFromToStorage = () => {
     if (typeof window === "undefined") {
       return;
     }
@@ -57,7 +57,7 @@ export function ApplicationContextProvider({
   };
 
   useEffect(() => {
-    loadData();
+    setDataFromToStorage();
 
     const homeStoredPosts = localStorage.getItem(constants.localStorage.posts);
     setHomePostsList(homeStoredPosts ? JSON.parse(homeStoredPosts) : []);

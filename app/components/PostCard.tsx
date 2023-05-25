@@ -1,10 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { Post } from "../types/cardTypes";
 import { AiFillHeart } from "react-icons/ai";
-import styles from "../styles/post-card.module.scss";
 import { useAppContext } from "../context/postsContext";
+import { useWindowSize } from "../hooks/windowSizeHook";
+import styles from "../styles/post-card.module.scss";
+import { Post } from "../types/cardTypes";
+import { constants } from "../types/constants";
 
 type PostCardType = {};
 
@@ -24,6 +26,7 @@ export default function PostCard(props: Post) {
   } = props;
 
   const { likePost, dislikePost } = useAppContext();
+  const windowSize = useWindowSize();
 
   const handleLikeClick = (id: string, isFav: boolean) => {
     if (isFav) {
@@ -42,7 +45,15 @@ export default function PostCard(props: Post) {
           <h4>{authorName}</h4>
         </header>
 
-        <section className={styles.body}>
+        <section
+          className={styles.body}
+          style={{
+            width:
+              windowSize <= constants.window.maxMobileWindowSize
+                ? "100%"
+                : "70%",
+          }}
+        >
           <Image src={postImageUrl} alt={imageTitle} width={500} height={500} />
           <div className={styles.imgFooter}>
             <div>
@@ -51,7 +62,7 @@ export default function PostCard(props: Post) {
             </div>
 
             <AiFillHeart
-              color={isFavorite ? "red" : "black"}
+              color={isFavorite ? "red" : "white"}
               className={`${styles.icon}`}
               onClick={() => handleLikeClick(postId, isFavorite)}
             />

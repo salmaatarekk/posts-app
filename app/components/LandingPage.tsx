@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useWindowSize } from "../hooks/windowSizeHook";
+import Loading from "../loading";
 import { Post } from "../types/cardTypes";
 import { constants } from "../types/constants";
 import PostCard from "./PostCard";
@@ -39,7 +40,7 @@ export default function LandingPage({ posts }: { posts: Post[] }) {
   return (
     <InfiniteScroll
       hasMore={hasMore}
-      loader={undefined}
+      loader={<Loading />}
       next={getNextPosts}
       key="landingPageScroll"
       dataLength={pagePosts.length}
