@@ -12,7 +12,7 @@ The Posts App is a social media platform that allows users to view and like post
 - Use the react-icons/ai library to display a heart icon for liking and disliking posts.
 
 3.Folder Structure:
-The project follows a modular structure and includes the following components.
+The project follows a modular structure and includes the following components:
 
 3.1 Pages:
 - Landing page (posts page): Displays posts retrieved from local storage
