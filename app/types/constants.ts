@@ -3,4 +3,7 @@ export const constants = {
     posts: "posts",
     likedPosts: "likedPosts",
   },
+  window: {
+    maxMobileWindowSize: 700,
+  },
 };

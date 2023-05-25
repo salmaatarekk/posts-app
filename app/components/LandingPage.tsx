@@ -5,6 +5,7 @@ import { Post } from "../types/cardTypes";
 import InfiniteScroll from "react-infinite-scroll-component";
 import PostCard from "./PostCard";
 import { useWindowSize } from "../hooks/windowSizeHook";
+import { constants } from "../types/constants";
 
 export default function LandingPage({ posts }: { posts: Post[] }) {
   const [hasMore, setHasMore] = useState<boolean>(true);
@@ -44,8 +45,9 @@ export default function LandingPage({ posts }: { posts: Post[] }) {
       dataLength={pagePosts.length}
       style={{
         overflow: "hidden",
-        marginTop: windowSize > 700 ? "8%" : 0,
-        marginBottom: windowSize <= 700 ? "10%" : 0,
+        marginTop: windowSize > constants.window.maxMobileWindowSize ? "8%" : 0,
+        marginBottom:
+          windowSize <= constants.window.maxMobileWindowSize ? "10%" : 0,
       }}
     >
       {pagePosts.map((post, idx) => (

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AiFillHeart, AiFillHome } from "react-icons/ai";
 import styles from "../styles/navbar.module.scss";
+import { constants } from "../types/constants";
 
 export default function NavBar() {
   const pathname = usePathname();
@@ -14,14 +15,22 @@ export default function NavBar() {
   return (
     <nav className={styles.navbar}>
       <Link className={pathname === "/" ? styles.active : ""} href={"/"}>
-        {windowSize <= 700 ? <AiFillHome className={styles.icons} /> : "Home"}
+        {windowSize <= constants.window.maxMobileWindowSize ? (
+          <AiFillHome className={styles.icons} />
+        ) : (
+          "Home"
+        )}
       </Link>
 
       <Link
         className={pathname.includes("favouritesPage") ? styles.active : ""}
         href={"/favouritesPage"}
       >
-        {windowSize <= 700 ? <AiFillHeart className={styles.icons} /> : "Liked"}
+        {windowSize <= constants.window.maxMobileWindowSize ? (
+          <AiFillHeart className={styles.icons} />
+        ) : (
+          "Liked"
+        )}
       </Link>
     </nav>
   );
