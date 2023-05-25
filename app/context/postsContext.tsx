@@ -20,8 +20,8 @@ type ApplicationContextType = {
 
 const defaultAppContextType: ApplicationContextType = {
   homePosts: [],
-  likePost: () => {},
   likedPosts: [],
+  likePost: () => {},
   dislikePost: () => {},
 };
 

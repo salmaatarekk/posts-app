@@ -1,8 +1,6 @@
-
 export const constants = {
-    localStorage: {
-        posts: 'posts',
-       likedPosts: 'likedPosts'
-    }
-
-}
+  localStorage: {
+    posts: "posts",
+    likedPosts: "likedPosts",
+  },
+};

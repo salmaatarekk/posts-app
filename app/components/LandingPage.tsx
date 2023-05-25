@@ -10,8 +10,6 @@ export default function LandingPage({ posts }: { posts: Post[] }) {
   const [pagePosts, setPagePosts] = useState<Post[]>([]);
 
   const getNextPosts = async () => {
-    // await new Promise(resolve => setTimeout(resolve, 500));
-
     if (pagePosts) {
       const nextPosts: Post[] = posts.slice(
         pagePosts.length,
@@ -37,11 +35,12 @@ export default function LandingPage({ posts }: { posts: Post[] }) {
 
   return (
     <InfiniteScroll
-      style={{ overflow: "hidden" }}
-      dataLength={pagePosts.length}
-      next={getNextPosts}
       hasMore={hasMore}
       loader={undefined}
+      next={getNextPosts}
+      key="landingPageScroll"
+      dataLength={pagePosts.length}
+      style={{ overflow: "hidden" }}
     >
       {pagePosts.map((post, idx) => (
         <PostCard key={`#${idx}`} {...post} />
