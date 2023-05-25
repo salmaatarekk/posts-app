@@ -43,6 +43,12 @@ export function ApplicationContextProvider({
     if (typeof window === "undefined") {
       return;
     }
+
+    // to save liked posts between reloads
+    if (localStorage.getItem(constants.localStorage.posts)) {
+      return;
+    }
+
     localStorage.setItem(
       constants.localStorage.posts,
       JSON.stringify(homePosts)
