@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Post } from "../types/cardTypes";
 import InfiniteScroll from "react-infinite-scroll-component";
-import PostCard from "./PostCard";
 import { useWindowSize } from "../hooks/windowSizeHook";
+import { Post } from "../types/cardTypes";
 import { constants } from "../types/constants";
+import PostCard from "./PostCard";
 
 export default function LandingPage({ posts }: { posts: Post[] }) {
   const [hasMore, setHasMore] = useState<boolean>(true);

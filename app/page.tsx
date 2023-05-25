@@ -1,15 +1,15 @@
 "use client";
 
-import { useAppContext } from "./context/postsContext";
 import LandingPage from "./components/LandingPage";
-import { useEffect } from "react";
+import { useAppContext } from "./context/postsContext";
+import Loading from "./loading";
 
 export default function Home() {
   const { homePosts } = useAppContext();
 
   return (
     <main>
-      <LandingPage posts={homePosts} />
+      {homePosts.length == 0 ? <Loading /> : <LandingPage posts={homePosts} />}
     </main>
   );
 }
