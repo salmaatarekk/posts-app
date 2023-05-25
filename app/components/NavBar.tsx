@@ -18,14 +18,10 @@ export default function NavBar() {
       </Link>
 
       <Link
-        className={pathname.includes("favorites") ? styles.active : ""}
+        className={pathname.includes("favouritesPage") ? styles.active : ""}
         href={"/favouritesPage"}
       >
-        {windowSize <= 700 ? (
-          <AiFillHeart className={styles.icons} />
-        ) : (
-          "Favourite Posts"
-        )}
+        {windowSize <= 700 ? <AiFillHeart className={styles.icons} /> : "Liked"}
       </Link>
     </nav>
   );

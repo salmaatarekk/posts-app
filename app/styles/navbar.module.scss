@@ -8,7 +8,7 @@
   position: fixed;
   left: 0;
   right: 0;
-  background: #000000e4;
+  background: palevioletred;
 
   a {
     color: #ffffff;
@@ -35,7 +35,6 @@
     font-size: 22px;
   }
 
-  // Media Queries
   @media (max-width: 700px) {
     bottom: 0;
   }

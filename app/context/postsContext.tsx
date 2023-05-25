@@ -43,9 +43,6 @@ export function ApplicationContextProvider({
     if (typeof window === "undefined") {
       return;
     }
-    if (localStorage.getItem(constants.localStorage.posts)) {
-      return;
-    }
     localStorage.setItem(
       constants.localStorage.posts,
       JSON.stringify(homePosts)
@@ -63,7 +60,7 @@ export function ApplicationContextProvider({
       constants.localStorage.likedPosts
     );
     setLikedPostsList(favStoredPosts ? JSON.parse(favStoredPosts) : []);
-  }, []);
+  }, [homePosts]);
 
   useEffect(() => {
     localStorage.setItem(
@@ -77,9 +74,10 @@ export function ApplicationContextProvider({
   }, [homePostsList, likedPostsList]);
 
   const likePost = (id: string) => {
-    const post = likedPostsList.find((p) => {
+    const post = homePostsList.find((p) => {
       if (p.postId === id) {
         p.isFavorite = true;
+        p.postLikes++;
         return true;
       }
       return false;
@@ -97,6 +95,7 @@ export function ApplicationContextProvider({
     homePostsList.forEach((p) => {
       if (p.postId === id) {
         p.isFavorite = false;
+        p.postLikes--;
       }
     });
     setLikedPostsList(likedPosts);

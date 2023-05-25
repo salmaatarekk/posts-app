@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import { Post } from "../types/cardTypes";
 import { AiFillHeart } from "react-icons/ai";
 import styles from "../styles/post-card.module.scss";
+import { useAppContext } from "../context/postsContext";
 
 type PostCardType = {};
 
@@ -20,48 +23,44 @@ export default function PostCard(props: Post) {
     postCommentsNumber,
   } = props;
 
-  const { layout } = styles;
+  const { likePost, dislikePost } = useAppContext();
 
-  const getImage = (image: string) => {
-    return () => image;
+  const handleLikeClick = (id: string, isFav: boolean) => {
+    if (isFav) {
+      dislikePost(id);
+    } else {
+      likePost(id);
+    }
   };
 
   return (
     <div className={styles.layout}>
       <main className={styles.card}>
         <header className={styles.header}>
-          <Image
-            // loader={getImage(authorImageUrl)}
-            alt={authorName}
-            width={50}
-            height={50}
-            src={authorImageUrl}
-          />
+          <Image alt={authorName} width={50} height={50} src={authorImageUrl} />
 
           <h4>{authorName}</h4>
         </header>
 
         <section className={styles.body}>
-          <Image
-            // loader={getImage(postImageUrl)}
-            src={postImageUrl}
-            alt={imageTitle}
-            width={500}
-            height={500}
-          />
+          <Image src={postImageUrl} alt={imageTitle} width={500} height={500} />
           <div className={styles.imgFooter}>
             <div>
               <p>{imageDescription}</p>
               <h4>{imageTitle}</h4>
             </div>
 
-            <AiFillHeart />
+            <AiFillHeart
+              color={isFavorite ? "red" : "black"}
+              className={`${styles.icon}`}
+              onClick={() => handleLikeClick(postId, isFavorite)}
+            />
           </div>
         </section>
 
         <footer className={styles.footer}>
           <div className={styles.likes}>
-            <AiFillHeart />
+            <AiFillHeart className={styles.icons} />
             <span>{postLikes} likes</span>
           </div>
 
