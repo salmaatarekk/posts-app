@@ -6,7 +6,6 @@ import { useAppContext } from "../context/postsContext";
 import { useWindowSize } from "../hooks/windowSizeHook";
 import styles from "../styles/post-card.module.scss";
 import { Post } from "../types/cardTypes";
-import { constants } from "../types/constants";
 
 type PostCardType = {};
 
@@ -45,15 +44,7 @@ export default function PostCard(props: Post) {
           <h4>{authorName}</h4>
         </header>
 
-        <section
-          className={styles.body}
-          style={{
-            width:
-              windowSize <= constants.window.maxMobileWindowSize
-                ? "100%"
-                : "70%",
-          }}
-        >
+        <section className={styles.body}>
           <Image src={postImageUrl} alt={imageTitle} width={500} height={500} />
           <div className={styles.imgFooter}>
             <div>
