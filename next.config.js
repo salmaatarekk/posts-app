@@ -4,7 +4,7 @@ const path = require("path");
 
 const nextConfig = {
   images: {
-    domains: ["images.unsplash.com"],
+    domains: ["images.unsplash.com", "plus.unsplash.com"],
   },
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
