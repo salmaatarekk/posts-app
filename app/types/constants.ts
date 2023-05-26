@@ -5,5 +5,6 @@ export const constants = {
   },
   window: {
     maxMobileWindowSize: 700,
+    resizeEventListener: "resize",
   },
 };

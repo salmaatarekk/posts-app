@@ -1,28 +1,25 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { constants } from "../types/constants";
 
+export function useWindowSize() {
+  const [windowSize, setWindowSize] = useState<number>(0);
 
-export function useWindowSize(){
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize(window.innerWidth);
+    };
 
-    const [windowSize, setWindowSize] = useState<number>(0);
-  
+    window.addEventListener(constants.window.resizeEventListener, handleResize);
+    handleResize();
 
+    return () =>
+      window.removeEventListener(
+        constants.window.resizeEventListener,
+        handleResize
+      );
+  }, []);
 
-    useEffect(() => {
-
-        const handleResize = () => {
-            setWindowSize(window.innerWidth);
-        }
-
-        window.addEventListener("resize", handleResize);
-        handleResize();
-
-        return() => window.removeEventListener("resize", handleResize);
-
-
-    }, []);
-
-    return windowSize;
-
+  return windowSize;
 }
