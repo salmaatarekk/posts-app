@@ -1,7 +1,7 @@
 # Project Documentation: Posts App
 
 1.Description:
-The Posts App is a social media platform that allows users to view and like posts. It features a LandingPage component that displays a list of posts and a Favorites page that shows the user's liked posts. The app uses Next.js 13 features such as layout, loading, and error indicator pages to provide a seamless user experience.
+The Posts App is a social media platform that allows users to view and like posts. It features a LandingPage component that displays a list of posts and a Favorites page that shows the user's liked posts. The app uses Next.js 13 features such as layout, and loading pages to provide a seamless user experience.
 
 2.Features:
 - Display a list of posts with images, author information, description, tags, likes, and comments.
